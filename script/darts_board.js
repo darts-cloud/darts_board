@@ -226,9 +226,9 @@ function drawDefaultColor() {
 		drawColor(num + "OS", singleColor);
 		drawColor(num + "D", multipleColor);
 		drawColor(num + "T", multipleColor);
-		drawColor(num + "SB", DEFINE_SINGLE_COLOR_BLACK);
-		drawColor(num + "DB", DEFINE_MULTI_COLOR_RED);
 	}
+	drawColor("SB", DEFINE_SINGLE_COLOR_BLACK);
+	drawColor("DB", DEFINE_MULTI_COLOR_RED);
 	refresh();
 }
 
