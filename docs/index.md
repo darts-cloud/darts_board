@@ -1,25 +1,19 @@
-testtest
+html内にダーツボードを出現させます。
+各エリアの色変更が可能です。
+ダーツアプリの視覚的な要素としていかがでしょうか。
 
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-
-
-
+# 実装例
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
 	<head>
-		<title>Darts_Arrange</title>
-		<link rel="stylesheet" href="css/style.css">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/min/jcanvas.min.js"></script>
-		<script src="https://darts-cloud.github.io/darts_board/release/darts_board_1.0.0.js"></script>
-		<script type="text/javascript" src="script/util.js"></script>
-		<script type="text/javascript" src="script/define_class.js"></script>
-		<script type="text/javascript" src="script/darts.js"></script>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript" src="script/darts_board.js"></script>
 	</head>
+	<body>
+		<!-- idは固定 -->
+		<div id="canvas">
+		</div>
+	</body>
+</html>
