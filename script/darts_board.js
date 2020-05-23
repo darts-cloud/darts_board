@@ -73,7 +73,7 @@ function canvas_init() {
  */
 function drawSlice(num, numberName) {
 	// 角度を算出
-	var baseAngles = (num - 1) * (20 / 360);
+	var baseAngles = (num - 1) * (360 / 20);
 
 	// インナーシングル描画
 	drawInnerSingle(baseAngles, numberName);
