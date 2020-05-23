@@ -3,17 +3,16 @@ html内にダーツボードを出現させます。
 ダーツアプリの視覚的な要素としていかがでしょうか。
 
 # 実装例
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-	"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/min/jcanvas.min.js"></script>
-		<script type="text/javascript" src="script/darts_board.js"></script>
-	</head>
-	<body>
-		<!-- idは固定 -->
-		<div id="canvas">
-		</div>
-	</body>
-</html>
+
+	<html>
+		<head>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/min/jcanvas.min.js"></script>
+			<script type="text/javascript" src="script/darts_board.js"></script>
+		</head>
+		<body>
+			<!-- idは固定 -->
+			<div id="canvas">
+			</div>
+		</body>
+	</html>
