@@ -214,6 +214,7 @@ function drawText(text, x, y) {
 function drawDefaultColor() {
 	var singleColor = "";
 	var multipleColor = "";
+	var number_name = "";
 	for (var num = 1; num <= 20; num++) {
 		if (num % 2 == 1) {
 			singleColor = DEFINE_SINGLE_COLOR_BLACK;
@@ -222,10 +223,11 @@ function drawDefaultColor() {
 			singleColor = DEFINE_SINGLE_COLOR_WHITE;
 			multipleColor = DEFINE_MULTI_COLOR_GREEN;
 		}
-		drawColor(num + "IS", singleColor);
-		drawColor(num + "OS", singleColor);
-		drawColor(num + "D", multipleColor);
-		drawColor(num + "T", multipleColor);
+		number_name = NUMBER_MAP[num];
+		drawColor(number_name + "IS", singleColor);
+		drawColor(number_name + "OS", singleColor);
+		drawColor(number_name + "D", multipleColor);
+		drawColor(number_name + "T", multipleColor);
 	}
 	drawColor("SB", DEFINE_SINGLE_COLOR_BLACK);
 	drawColor("DB", DEFINE_MULTI_COLOR_RED);
