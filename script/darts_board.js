@@ -2,6 +2,8 @@ var DEFINE_STROKE_STYLE = 'black';
 var DEFINE_STROKE_WIDTH = 2;
 var DEFINE_CENTER_X = 180;
 var DEFINE_CENTER_Y = 180;
+
+var DEFINE_DEFAULT_COLOR = 'white';
 var DEFINE_MULTI_COLOR_RED = 'red';
 var DEFINE_MULTI_COLOR_GREEN = 'green';
 var DEFINE_SINGLE_COLOR_WHITE = 'white';
@@ -93,6 +95,7 @@ function drawInnerSingle(baseAngles, numberName) {
 	$('canvas').drawSlice({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
+		fillStyle: DEFINE_DEFAULT_COLOR,
 		name: numberName + "IS",
 		layer: true,
 		x: DEFINE_CENTER_Y, y: DEFINE_CENTER_Y,
@@ -111,6 +114,7 @@ function drawOuterSingle(baseAngles, numberName) {
 	$('canvas').drawVector({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
+		fillStyle: DEFINE_DEFAULT_COLOR,
 		name: numberName + "OS",
 		layer: true,
 		rounded: false,
@@ -132,6 +136,7 @@ function drawDouble(baseAngles, numberName) {
 	$('canvas').drawVector({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
+		fillStyle: DEFINE_DEFAULT_COLOR,
 		name: numberName + "D",
 		layer: true,
 		rounded: false,
@@ -153,6 +158,7 @@ function drawTriple(baseAngles, numberName) {
 	$('canvas').drawVector({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
+		fillStyle: DEFINE_DEFAULT_COLOR,
 		name: numberName + "T",
 		layer: true,
 		rounded: false,
@@ -173,7 +179,7 @@ function drawBull() {
 	$('canvas').drawArc({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
-		fillStyle: DEFINE_MULTI_COLOR_RED,
+		fillStyle: DEFINE_DEFAULT_COLOR,
 		name: "SB",
 		layer: true,
 		x: DEFINE_CENTER_X, y: DEFINE_CENTER_Y,
@@ -183,7 +189,7 @@ function drawBull() {
 	$('canvas').drawArc({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
-		fillStyle: DEFINE_SINGLE_COLOR_BLACK,
+		fillStyle: DEFINE_DEFAULT_COLOR,
 		name: "DB",
 		layer: true,
 		x: DEFINE_CENTER_X, y: DEFINE_CENTER_Y,
