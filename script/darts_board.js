@@ -6,8 +6,6 @@ var DEFINE_MULTI_COLOR_RED = 'red';
 var DEFINE_MULTI_COLOR_GREEN = 'green';
 var DEFINE_SINGLE_COLOR_WHITE = 'white';
 var DEFINE_SINGLE_COLOR_BLACK = 'black';
-var MULTI_COLOR = '';
-var SINGLE_COLOR = '';
 var NUMBER_MAP = {
 	1 : "20",
 	2 : "1",
@@ -69,39 +67,29 @@ function canvas_init() {
  * ナンバー描画
  */
 function drawSlice(num, numberName) {
-	var canvas = $('canvas');
-	var baseAngles = (num - 1) * 18;
-	var singleColor = "";
-	var multipleColor = "";
-	if (num % 2 == 1) {
-		singleColor = DEFINE_SINGLE_COLOR_BLACK;
-		multipleColor = DEFINE_MULTI_COLOR_RED;
-	} else {
-		singleColor = DEFINE_SINGLE_COLOR_WHITE;
-		multipleColor = DEFINE_MULTI_COLOR_GREEN;
-	}
-	
+	// 角度を算出
+	var baseAngles = (num - 1) * (360 / 20);
+
 	// インナーシングル描画
-	drawInnerSingle(singleColor, baseAngles, numberName);
+	drawInnerSingle(baseAngles, numberName);
 	
 	// アウターシングル描画
-	drawOuterSingle(singleColor, baseAngles, numberName);
+	drawOuterSingle(baseAngles, numberName);
 
 	// トリプル描画
-	drawTriple(multipleColor, baseAngles, numberName);
+	drawTriple(baseAngles, numberName);
 
 	// ダブル描画
-	drawDouble(multipleColor, baseAngles, numberName);
+	drawDouble(baseAngles, numberName);
 }
 
 /**
  * インナーシングル描画
  */
-function drawInnerSingle(color, baseAngles, numberName) {
+function drawInnerSingle(baseAngles, numberName) {
 	$('canvas').drawSlice({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
-		fillStyle: color,
 		name: numberName + "IS",
 		layer: true,
 		x: DEFINE_CENTER_Y, y: DEFINE_CENTER_Y,
@@ -114,13 +102,12 @@ function drawInnerSingle(color, baseAngles, numberName) {
 /**
  * アウターシングル描画
  */
-function drawOuterSingle(color, baseAngles, numberName) {
+function drawOuterSingle(baseAngles, numberName) {
 	var startX = DEFINE_CENTER_X + Math.sin((baseAngles-9) * Math.PI / 180) * 88;
 	var startY = DEFINE_CENTER_Y + Math.cos((baseAngles-9) * Math.PI / 180) * -90;
 	$('canvas').drawVector({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
-		fillStyle: color,
 		name: numberName + "OS",
 		layer: true,
 		rounded: false,
@@ -135,14 +122,13 @@ function drawOuterSingle(color, baseAngles, numberName) {
 /**
  * ダブル描画
  */
-function drawDouble(color, baseAngles, numberName) {
+function drawDouble(baseAngles, numberName) {
 	var startX = DEFINE_CENTER_X + Math.sin((baseAngles-9) * Math.PI / 180) * 132;
 	var startY = DEFINE_CENTER_Y + Math.cos((baseAngles-9) * Math.PI / 180) * -132;
 	// Draw a closed path (making a triangle)
 	$('canvas').drawVector({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
-		fillStyle: color,
 		name: numberName + "D",
 		layer: true,
 		rounded: false,
@@ -157,14 +143,13 @@ function drawDouble(color, baseAngles, numberName) {
 /**
  * トリプル描画
  */
-function drawTriple(color, baseAngles, numberName) {
+function drawTriple(baseAngles, numberName) {
 	var startX = DEFINE_CENTER_X + Math.sin((baseAngles-9) * Math.PI / 180) * 68;
 	var startY = DEFINE_CENTER_Y + Math.cos((baseAngles-9) * Math.PI / 180) * -70;
 	// Draw a closed path (making a triangle)
 	$('canvas').drawVector({
 		strokeStyle: DEFINE_STROKE_STYLE,
 		strokeWidth: DEFINE_STROKE_WIDTH,
-		fillStyle: color,
 		name: numberName + "T",
 		layer: true,
 		rounded: false,
@@ -216,11 +201,38 @@ function drawText(text, x, y) {
 	});
 }
 
+
+function drawDefaultColor() {
+	var singleColor = "";
+	var multipleColor = "";
+	for (var num = 1; num <= 20; num++) {
+		if (num % 2 == 1) {
+			singleColor = DEFINE_SINGLE_COLOR_BLACK;
+			multipleColor = DEFINE_MULTI_COLOR_RED;
+		} else {
+			singleColor = DEFINE_SINGLE_COLOR_WHITE;
+			multipleColor = DEFINE_MULTI_COLOR_GREEN;
+		}
+		drawColor(num + "IS", singleColor);
+		drawColor(num + "OS", singleColor);
+		drawColor(num + "D", multipleColor);
+		drawColor(num + "T", multipleColor);
+		drawColor(num + "SB", DEFINE_SINGLE_COLOR_BLACK);
+		drawColor(num + "DB", DEFINE_MULTI_COLOR_RED);
+	}
+}
+
 $(function() {
 	// ボード描画
 	canvas_init();
-
-	$('canvas').getLayer("12IS").fillStyle = 'yellow';
+	
 	// 再描画
 	$('canvas').drawLayers();
 });
+
+/**
+ * 
+ */
+function drawColor(number, color) {
+    
+}
