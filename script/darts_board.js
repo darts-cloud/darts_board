@@ -41,6 +41,9 @@ function canvas_init() {
 	// ブル描画
 	drawBull();
 
+	// 着色
+	drawDefaultColor();
+	
 	drawText("20", 180, 15);
 	drawText("1" , 230, 25);
 	drawText("18", 280, 50);
@@ -220,19 +223,37 @@ function drawDefaultColor() {
 		drawColor(num + "SB", DEFINE_SINGLE_COLOR_BLACK);
 		drawColor(num + "DB", DEFINE_MULTI_COLOR_RED);
 	}
+	refresh();
 }
 
 $(function() {
 	// ボード描画
 	canvas_init();
-	
-	// 再描画
-	$('canvas').drawLayers();
 });
 
 /**
- * 
+ * 着色（一箇所だけ）
+ */
+function drawColorOnce(number, color) {
+	// ボードの色初期化
+	drawDefaultColor();
+	// 一箇所だけ着色
+	$('canvas').getLayer(number).fillStyle = color;
+	// 再描画
+	refresh();
+}
+
+/**
+ * 着色
  */
 function drawColor(number, color) {
-    
+	$('canvas').getLayer(number).fillStyle = color;
+}
+
+/**
+ * 再描画
+ */
+function refresh() {
+	// 再描画
+	$('canvas').drawLayers();
 }
