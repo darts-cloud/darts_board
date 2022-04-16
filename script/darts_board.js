@@ -266,7 +266,3 @@ class DartsBoard {
     
 }
 
-$(function(){
-    let db = new DartsBoard();
-    db.drawBoard();
-});
