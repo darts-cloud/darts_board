@@ -25,15 +25,14 @@ class DartsBoard {
     	20 : "5"
     };
     
-    
     constructor() {
-        this.STROKE_STYLE = 'black';
-        this.DEFAULT_COLOR = 'white';
-        this.MULTI_COLOR_RED = 'red';
-        this.MULTI_COLOR_GREEN = 'green';
-        this.SINGLE_COLOR_WHITE = 'white';
-        this.SINGLE_COLOR_BLACK = 'black';
-        this.STROKE_WIDTH = 2;
+        this.STROKE_STYLE = '#151517';
+        this.DEFAULT_COLOR = '#FBE4BA';
+        this.MULTI_COLOR_RED = '#E5272B';
+        this.MULTI_COLOR_GREEN = '#379233';
+        this.SINGLE_COLOR_WHITE = '#FBE4BA';
+        this.SINGLE_COLOR_BLACK = '#151517';
+        this.STROKE_WIDTH = 1;
         this.CENTER_X = 180;
         this.CENTER_Y = 180;
     }
